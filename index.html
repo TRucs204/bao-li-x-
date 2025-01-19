@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="showView">
+      <div id="modal">
+        <div class="modal-content">
+          <h2>Anh Ngọc Chương sẽ lì xì cho bạn</h2>
+          <h1 id="money-lucky"></h1>
+          <button id="cancel">dạ em cảm ơn anh chương</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let arr = ["10k", "20k", "30k", "40k", "50k"];
+    let baoLiXi = [
+      "https://img.lovepik.com/element/40018/3664.png_860.png",
+      "https://tomau.vn/wp-content/uploads/tranh-to-mau-bao-li-xi-ngay-tet.jpg",
+      "https://cdn.pnj.io/images/detailed/70/gj0000y060001-bao-li-xi-loi-vang-24k-pnj-than-tai-01.png",
+    ];
+    document.addEventListener("DOMContentLoaded", function () {
+      const view = document.getElementById("showView");
+      for (let i = 0; i < 16; i++) {
+        const item = document.createElement("img");
+        item.className = "item";
+        const imgIndex = Math.floor(Math.random() * baoLiXi.length);
+        item.src = baoLiXi[imgIndex];
+        item.style.animationDuration = Math.random() * 5 + 5 + "s";
+        item.style.left = Math.random() * 100 + "%";
+        item.style.width = Math.random() * 2 + 2 + "rem";
+
+        view.appendChild(item);
+
+        item.addEventListener("click", function (event) {
+          event.stopPropagation();
+          if (event.target.classList.contains("item")) {
+            openModal();
+            console.log(event.target);
+          }
+        });
+      }
+      function handleData() {
+        const money = Math.floor(Math.random() * arr.length);
+        const dataDisplayed = document.getElementById("money-lucky");
+        dataDisplayed.textContent = arr[money];
+      }
+
+      function openModal() {
+        handleData();
+        document.getElementById("modal").style.display = "flex";
+      }
+
+      const modal = document.getElementById("modal");
+      const cancel = document.getElementById("cancel"); // Prevent modal click and button click from propagating to the view
+      modal.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+      cancel.addEventListener("click", function (event) {
+        event.stopPropagation();
+        document.getElementById("modal").style.display = "none";
+      }); // Prevent view click from logging and triggering modal actions
+      view.addEventListener("click", function (event) {
+        event.stopPropagation();
+        console.log("Clicked on the background, no action taken");
+      });
+    });
+  </script>
+</html>
