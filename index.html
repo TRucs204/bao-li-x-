@@ -8,25 +8,55 @@
   </head>
   <body>
     <div id="showView">
+      <button class="bgr-while">đổi background</button>
       <div id="modal">
+        <img
+          class="imgModal"
+          src="https://png.pngtree.com/png-clipart/20210309/original/pngtree-vietnamese-new-year-tet-design-png-image_5905532.png"
+          alt=""
+        />
         <div class="modal-content">
-          <h2>Anh Ngọc Chương sẽ lì xì cho bạn</h2>
-          <h1 id="money-lucky"></h1>
-          <button id="cancel">dạ em cảm ơn anh chương</button>
+          <h4>Anh Ngọc Chương sẽ lì xì cho bạn</h4>
+          <h3 id="money-lucky"></h3>
+          <button id="cancel"><p>em cảm ơn anh Chương</p></button>
         </div>
       </div>
     </div>
   </body>
   <script>
-    let arr = ["10k", "20k", "30k", "40k", "50k"];
+    let arr = [
+      "10k",
+      "10k",
+      "20k",
+      "10k",
+      "40k",
+      "20k",
+      "10k",
+      "30k",
+      "10k",
+      "50k",
+      "10k",
+      "40k",
+      "10k",
+      "20k",
+      "40k",
+      "10k",
+      "20k",
+      "50k",
+      "20k",
+      "10k",
+      "50k",
+      "20k",
+      "10k",
+    ];
     let baoLiXi = [
-      "https://img.lovepik.com/element/40018/3664.png_860.png",
-      "https://tomau.vn/wp-content/uploads/tranh-to-mau-bao-li-xi-ngay-tet.jpg",
-      "https://cdn.pnj.io/images/detailed/70/gj0000y060001-bao-li-xi-loi-vang-24k-pnj-than-tai-01.png",
+      "https://cdn.pnj.io/images/detailed/70/gj0000y060000-bao-li-xi-loi-vang-24k-pnj-kim-nguyen-bao-02.png",
+      "https://vietnamgreetings.com/uploads/plugin/product_items/980/1637920244-1465173908-bao-li-xi-greenwood-lxh102-tui-6c.png",
+      "https://nhasachphuongnam.com/images/thumbnails/435/537/detailed/186/hd7.png",
     ];
     document.addEventListener("DOMContentLoaded", function () {
       const view = document.getElementById("showView");
-      for (let i = 0; i < 16; i++) {
+      for (let i = 0; i < 10; i++) {
         const item = document.createElement("img");
         item.className = "item";
         const imgIndex = Math.floor(Math.random() * baoLiXi.length);
@@ -53,7 +83,7 @@
 
       function openModal() {
         handleData();
-        document.getElementById("modal").style.display = "flex";
+        document.getElementById("modal").style.display = "block";
       }
 
       const modal = document.getElementById("modal");
@@ -69,6 +99,23 @@
         event.stopPropagation();
         console.log("Clicked on the background, no action taken");
       });
+    });
+
+    const background = document.querySelector(".bgr-while");
+    const content = document.getElementById("showView");
+    const body = document.body;
+    background.addEventListener("click", function () {
+      if (background.classList.contains("bgr-while")) {
+        background.classList.remove("bgr-while");
+        background.classList.add("bgr-moonlight"); // Thay đổi class khi click
+        body.style.background = "black";
+        content.style.background = "black";
+      } else {
+        background.classList.remove("bgr-moonlight");
+        background.classList.add("bgr-while"); // Trở lại class ban đầu
+        body.style.background = "white";
+        content.style.background = "white";
+      }
     });
   </script>
 </html>

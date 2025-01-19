@@ -4,7 +4,8 @@
   display: flex;
   justify-content: center;
   position: relative;
-  background-color: black;
+  background-color: rgb(248, 248, 248);
+  overflow: hidden;
 }
 .item {
   position: absolute;
@@ -42,10 +43,46 @@
   justify-content: center;
   width: calc(100% - 20px);
   max-width: 500px;
-  height: 20vh;
-  background-color: rgb(235, 219, 219);
+  height: 30vh;
+  background-color: rgb(129, 178, 241);
   position: fixed;
   top: 50%;
   display: none;
   z-index: 9900;
+  border-radius: 20px;
+}
+.bgr-while {
+  width: 80px;
+  height: 80px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  color: #fdfeff;
+  z-index: 90;
+}
+
+.bgr-moonlight {
+  width: 80px;
+  height: 80px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 50px rgb(196, 214, 91);
+  border-radius: 50%;
+  color: #ffffff;
+  z-index: 90;
+}
+.imgModal {
+  width: 70px;
+}
+.modal-content {
+  margin-top: -15px;
+
+  color: rgb(255, 248, 248);
+}
+#cancel {
+  border: 1px solid rgb(233, 29, 172);
+  border-radius: 20px;
+  background-color: #f385c5;
+  color: #ffffff;
+}
+p {
+  padding: 1px;
 }
